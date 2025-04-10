@@ -7,11 +7,12 @@ import xyz.mynt.openweather.home.domain.model.Weather
 
 @Entity(tableName = "weather")
 data class WeatherEntity(
-    @PrimaryKey val id: Int,
+    val id: Int,
     val locationName: String,
     val temperature: String,
     val description: String,
-    val timestamp: Int
+    val timestamp: String,
+    @PrimaryKey val pk: Long,
 ) {
     fun toDomain(): WeatherHistory = WeatherHistory(
         id = id,
@@ -27,5 +28,6 @@ fun Weather.toEntity(): WeatherEntity = WeatherEntity(
     locationName = locationName,
     temperature = temperature.current,
     description = forecast.status,
-    timestamp = timestamp
+    timestamp = timestamp,
+    pk = pk
 )

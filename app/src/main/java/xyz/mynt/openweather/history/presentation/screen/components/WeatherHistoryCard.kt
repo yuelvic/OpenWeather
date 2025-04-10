@@ -39,6 +39,10 @@ fun WeatherHistoryCard(weatherHistory: WeatherHistory) {
                     style = MaterialTheme.typography.titleLarge
                 )
             }
+            Text(
+                text = weatherHistory.timestamp,
+                style = MaterialTheme.typography.titleSmall
+            )
         }
     }
 }

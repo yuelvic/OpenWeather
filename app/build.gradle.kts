@@ -25,7 +25,7 @@ android {
             buildConfigField(type = "String", name = "BASE_URL", value = "\"https://api.openweathermap.org/data/2.5/\"")
             buildConfigField(type = "String", name = "AVATAR_URL_PREFIX", value = "\"https://openweathermap.org/img/wn/\"")
             buildConfigField(type = "String", name = "AVATAR_URL_SUFFIX", value = "\"@4x.png\"")
-            buildConfigField(type = "String", name = "OPEN_WEATHER_TOKEN", value = "\"e88061b99da711903249ecbab60d9137\"")
+            buildConfigField(type = "String", name = "OPEN_WEATHER_TOKEN", value = "\"<REPLACE_TOKEN_HERE>\"")
         }
         release {
             isMinifyEnabled = false
@@ -61,9 +61,12 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.room.runtime)
+    implementation(libs.play.services.location)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -74,6 +77,7 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.accompanist.permissions)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)

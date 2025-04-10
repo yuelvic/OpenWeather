@@ -13,3 +13,10 @@ fun Long.toFormattedTime(): String {
     val zoned = instant.atZone(ZoneId.systemDefault())
     return formatter.format(zoned)
 }
+
+fun Long.toFormattedDateAndTime(): String {
+    val instant = Instant.ofEpochSecond(this)
+    val zoned = instant.atZone(ZoneId.systemDefault())
+    val dateTimeFormatter = DateTimeFormatter.ofPattern("MMM dd, yyyy • hh:mm a")
+    return dateTimeFormatter.format(zoned)
+}

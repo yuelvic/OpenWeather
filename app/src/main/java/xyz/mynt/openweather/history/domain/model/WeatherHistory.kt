@@ -5,5 +5,5 @@ data class WeatherHistory(
     val locationName: String,
     val temperature: String,
     val description: String,
-    val timestamp: Int
+    val timestamp: String
 )

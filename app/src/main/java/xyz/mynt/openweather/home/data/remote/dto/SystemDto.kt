@@ -5,10 +5,12 @@ import xyz.mynt.openweather.home.domain.model.System
 
 data class SystemDto(
     val sunrise : Long,
-    val sunset : Long
+    val sunset : Long,
+    val country: String
 ) {
     fun toDomain() = System(
         sunrise = sunrise.toFormattedTime(),
-        sunset = sunset.toFormattedTime()
+        sunset = sunset.toFormattedTime(),
+        country = country
     )
 }
